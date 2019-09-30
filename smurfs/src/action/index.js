@@ -21,13 +21,13 @@ export const getSmurf = () => dispatch => {
     });
 };
 export const postSmurf = smurfData => dispatch => {
-  console.log(smurfData);
+  // console.log(smurfData);
   dispatch({ type: POST_SMURF_START });
   return axios
     .post("http://localhost:3333/smurfs", smurfData)
     .then(res => {
       // console.log(res);
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({ type: POST_SMURF_SUCCESS, payload: res.data });
     })
     .catch(err => {
