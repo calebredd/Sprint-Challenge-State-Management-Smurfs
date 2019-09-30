@@ -12,8 +12,7 @@ export const getSmurf = () => dispatch => {
   axios
     .get("http://localhost:3333/smurfs")
     .then(res => {
-      // console.log(res);
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -24,15 +23,15 @@ export const getSmurf = () => dispatch => {
 export const postSmurf = smurfData => dispatch => {
   console.log(smurfData);
   dispatch({ type: POST_SMURF_START });
-  axios
-    .post("http://localhost:3333/smurfs", { data: smurfData })
+  return axios
+    .post("http://localhost:3333/smurfs", smurfData)
     .then(res => {
-      console.log(res);
+      // console.log(res);
       console.log(res.data);
-      // dispatch({ type: POST_SMURF_SUCCESS, payload: res.data });
+      dispatch({ type: POST_SMURF_SUCCESS, payload: res.data });
     })
     .catch(err => {
       console.error(err);
-      // dispatch({ type: POST_SMURF_FAIL, payload: err });
+      dispatch({ type: POST_SMURF_FAIL, payload: err });
     });
 };

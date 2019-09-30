@@ -9,7 +9,8 @@ function SmurfForm(props) {
       name: e.target.name.value,
       age: Number(e.target.age.value),
       height: e.target.height.value + "cm",
-      id: Number(e.target.id.value)
+      // id: Number(e.target.id.value)
+      // id: Date.now()
     };
     // console.log(e.target);
     // console.log(e.target.name.value);
@@ -38,7 +39,7 @@ function SmurfForm(props) {
         />{" "}
         cm
         <br />
-        <input type="hidden" name="id" value={Date.now()} />
+        {/* <input type="hidden" name="id" value={Date.now()} /> */}
         <button type="submit">Add Smurf</button>
       </form>
     </div>

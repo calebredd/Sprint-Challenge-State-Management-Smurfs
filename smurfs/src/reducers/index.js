@@ -7,21 +7,15 @@ import {
   POST_SMURF_SUCCESS
 } from "../action/";
 const initialState = {
-  name: "OG Smurf",
-  age: 3000,
-  height: "7cm",
-  id: Date.now(),
   error: "",
   isFetching: false,
   smurfs: [
-    {
-      name: "OG Smurf",
-      age: 3000,
-      height: "7cm",
-      id: Date.now(),
-      error: "",
-      isFetching: false
-    }
+    // {
+    //   name: "OG Smurf",
+    //   age: 3000,
+    //   height: "7cm",
+    //   id: Date.now(),
+    // }
   ]
 };
 
@@ -30,17 +24,18 @@ export default function reducer(state = initialState, action) {
     case FETCH_SMURF_START:
       return { ...state, isFetching: true };
     case FETCH_SMURF_SUCCESS:
+      console.log(action.payload);
       return {
         ...state,
         isFetching: false,
-        smurfs: [action.payload[0], ...state.smurfs]
+        smurfs: [...action.payload]
       };
     case FETCH_SMURF_FAIL:
       return { ...state, error: action.payload, isFetching: false };
     case POST_SMURF_START:
-      return { ...state, isFetching: false };
+      return { ...state, isFetching: true };
     case POST_SMURF_SUCCESS:
-      return { ...state, isFetching: false };
+      return { ...state, isFetching: false, smurfs: [...action.payload] };
     case POST_SMURF_FAIL:
       return { ...state, error: action.payload, isFetching: false };
     default:
