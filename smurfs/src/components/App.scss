@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+
+
+  form {
+    border: 2px solid black;
+    margin: 10px auto;
+    padding: 10px;
+    max-width: 80vw;
+
+
+    input {
+      border: 1px solid black;
+      margin: 10px auto;
+      max-width: 90%;
+      font-size: 1.5rem;
+    }
+
+    button {
+      border: 1px solid black;
+      border-radius: 5px;
+
+      &:hover {
+        background: lightgray;
+        // color: white;
+      }
+
+      &:active {
+        background: black;
+        color: white;
+      }
+    }
+  }
+}
